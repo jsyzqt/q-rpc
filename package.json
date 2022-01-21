@@ -1,27 +1,32 @@
 {
-  "name": "@jsyzqt/q-rpc",
-  "version": "1.0.0",
-  "description": "",
-  "main": "dist/core.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\""
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/jsyzqt/q-rpc.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "LGPL-2.1",
-  "bugs": {
-    "url": "https://github.com/jsyzqt/q-rpc/issues"
-  },
-  "homepage": "https://github.com/jsyzqt/q-rpc#readme",
-  "dependencies": {
-    "axios": "^0.25.0"
-  },
-  "devDependencies": {
-    "np": "^7.6.0",
-    "typescript": "^4.5.4"
-  }
+    "name": "@jsyzqt/q-rpc",
+    "version": "1.0.0",
+    "description": "",
+    "main": "dist/core.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\""
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/jsyzqt/q-rpc.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "LGPL-2.1",
+    "bugs": {
+        "url": "https://github.com/jsyzqt/q-rpc/issues"
+    },
+    "homepage": "https://github.com/jsyzqt/q-rpc#readme",
+    "dependencies": {
+        "axios": "^0.25.0"
+    },
+    "devDependencies": {
+        "np": "^7.6.0",
+        "typescript": "^4.5.4"
+    },
+    "np": {
+        "publishConfig": {
+            "access": "public"
+        }
+    }
 }
