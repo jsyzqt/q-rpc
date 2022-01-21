@@ -1,5 +1,5 @@
 {
-  "name": "q-rpc",
+  "name": "@qt/q-rpc",
   "version": "1.0.0",
   "description": "",
   "main": "dist/core.js",
