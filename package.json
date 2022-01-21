@@ -1,5 +1,5 @@
 {
-  "name": "@qt/q-rpc",
+  "name": "@jsyzqt/q-rpc",
   "version": "1.0.0",
   "description": "",
   "main": "dist/core.js",
