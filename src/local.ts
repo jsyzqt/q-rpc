@@ -1,5 +1,7 @@
 import { rpcCallback, rpcRequest, rpcResponse, rpcChannel } from './core';
 
+
+
 export class Client {
     private readonly rpcClientVersion = '0.1a';
     private readonly rpcChannel: rpcChannel;
@@ -80,11 +82,20 @@ export class clientFactory {
                             return res.data;
                         }
                         else if (res.remote !== undefined && res.remote.isErr) {
-                            if(res.remote.errCode == 1){
-                                throw res.remote.remoteThrowed;
+                            if (res.remote.errCode == 1) {
+                                if (!res.remote.remoteThrowed) {
+                                    throw new Error('Undefined remote thrown error.');
+                                }
+                                const parsedError = JSON.parse(res.remote.remoteThrowed);
+                                if (typeof parsedError === 'string') {
+                                    throw parsedError;
+                                } else {
+                                    const deserializedError = Object.assign(new Error(), JSON.parse(parsedError));
+                                    throw deserializedError;
+                                }
                             } else {
                                 throw res.remote.errMsg;
-                            }   
+                            }
                         }
                         else {
                             throw res.local.errMsg;
