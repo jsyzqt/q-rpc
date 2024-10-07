@@ -1,6 +1,13 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Server = void 0;
+const isError = (e) => {
+    return e &&
+        e.stack &&
+        e.message &&
+        typeof e.stack === 'string' &&
+        typeof e.message === 'string';
+};
 class Server {
     constructor(registerService) {
         this.registerService = registerService;
@@ -20,11 +27,18 @@ class Server {
                     };
                 }
                 catch (e) {
+                    let serializedError;
+                    if (isError(e)) {
+                        serializedError = JSON.stringify(e, Object.getOwnPropertyNames(e));
+                    }
+                    else if (typeof e === 'string') {
+                        serializedError = e;
+                    }
                     return {
                         isErr: true,
                         errCode: 1,
                         errMsg: 'Function throw an error.',
-                        remoteThrowed: JSON.stringify(e)
+                        remoteThrowed: serializedError
                     };
                 }
             }

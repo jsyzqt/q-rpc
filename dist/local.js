@@ -71,7 +71,17 @@ class clientFactory {
                         }
                         else if (res.remote !== undefined && res.remote.isErr) {
                             if (res.remote.errCode == 1) {
-                                throw res.remote.remoteThrowed;
+                                if (!res.remote.remoteThrowed) {
+                                    throw new Error('Undefined remote thrown error.');
+                                }
+                                const parsedError = JSON.parse(res.remote.remoteThrowed);
+                                if (typeof parsedError === 'string') {
+                                    throw parsedError;
+                                }
+                                else {
+                                    const deserializedError = Object.assign(new Error(), JSON.parse(parsedError));
+                                    throw deserializedError;
+                                }
                             }
                             else {
                                 throw res.remote.errMsg;
