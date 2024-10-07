@@ -26,7 +26,7 @@
         "typescript": "^4.5.4"
     },
     "np": {
-        "2fa": false
+        "2fa": true
     },
     "publishConfig": {
         "access": "public"
