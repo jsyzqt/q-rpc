@@ -22,11 +22,11 @@
         "ts-node": "^10.9.2"
     },
     "devDependencies": {
-        "np": "^7.6.0",
+        "np": "^10.1.0",
         "typescript": "^4.5.4"
     },
     "np": {
-        "2fa": true
+        "2fa": false
     },
     "publishConfig": {
         "access": "public"
