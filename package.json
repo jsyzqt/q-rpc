@@ -18,12 +18,12 @@
     },
     "homepage": "https://github.com/jsyzqt/q-rpc#readme",
     "dependencies": {
-        "axios": "^0.25.0",
-        "ts-node": "^10.9.2"
+        "axios": "^0.25.0"
     },
     "devDependencies": {
         "np": "^10.1.0",
-        "typescript": "^4.5.4"
+        "typescript": "^4.5.4",
+        "ts-node": "^10.9.2"
     },
     "np": {
         "2fa": false
