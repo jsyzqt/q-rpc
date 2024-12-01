@@ -1,0 +1,1 @@
+{"version":3,"file":"dummyProtocol.js","sourceRoot":"","sources":["../../src/local-channel/dummyProtocol.ts"],"names":[],"mappings":";;;AAIA,MAAa,aAAa;IAGtB,YAAY,EAA2B;QACnC,IAAI,CAAC,EAAE,GAAG,EAAE,CAAC;IACjB,CAAC;IAED,KAAK,CAAC,IAAI,CAAC,GAAO;QACd,OAAO,MAAM,IAAI,CAAC,EAAE,CAAC,IAAI,CAAC,KAAK,CAAC,IAAI,CAAC,SAAS,CAAC,GAAG,CAAC,CAAC,CAAC,CAAC;IAC1D,CAAC;CACJ;AAVD,sCAUC"}

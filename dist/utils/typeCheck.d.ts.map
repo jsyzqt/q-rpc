@@ -1,0 +1,1 @@
+{"version":3,"file":"typeCheck.d.ts","sourceRoot":"","sources":["../../src/utils/typeCheck.ts"],"names":[],"mappings":"AAGA,MAAM,MAAM,qBAAqB,GAAG;IAChC,IAAI,EAAE,MAAM,CAAC;IACb,IAAI,EAAE,QAAQ,GAAG,QAAQ,GAAG,OAAO,CAAC;IACpC,OAAO,CAAC,EAAE,OAAO,CAAA;CACpB,CAAA;AAED,eAAO,MAAM,iBAAiB,SAAU,GAAG,aAAY,qBAAqB,EAAE,YAqC7E,CAAA"}

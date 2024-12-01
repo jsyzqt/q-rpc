@@ -1,7 +1,7 @@
 export interface rpcResponse {
     isErr: boolean;
     errCode?: number;
-    errMsg?:string;
+    errMsg?: string;
     remoteReturned?: string;
     remoteThrowed?: string;
 }
@@ -10,14 +10,15 @@ export interface rpcRequest {
     mjRPCClient: string;
     method: string;
     args: any[];
-    version: string;
+    additionID: string;
     id: string;
+    binary?: { id:string, binData: Blob }[];
 }
 
 export interface rpcLocal {
     isErr: boolean;
     errCode?: number;
-    errMsg?:string;
+    errMsg?: string;
 }
 
 export interface rpcCallback {
@@ -28,6 +29,6 @@ export interface rpcCallback {
     data?: any;
 }
 
-export interface rpcChannel {
-    send(request: rpcRequest):Promise<rpcResponse>;
+export interface QrpcChannel {
+    send(request: rpcRequest): Promise<rpcResponse>;
 }

@@ -9,8 +9,12 @@ export interface rpcRequest {
     mjRPCClient: string;
     method: string;
     args: any[];
-    version: string;
+    additionID: string;
     id: string;
+    binary?: {
+        id: string;
+        binData: Blob;
+    }[];
 }
 export interface rpcLocal {
     isErr: boolean;
@@ -24,7 +28,7 @@ export interface rpcCallback {
     request: rpcRequest;
     data?: any;
 }
-export interface rpcChannel {
+export interface QrpcChannel {
     send(request: rpcRequest): Promise<rpcResponse>;
 }
 //# sourceMappingURL=interfaces.d.ts.map

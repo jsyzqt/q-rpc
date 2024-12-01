@@ -1,14 +1,14 @@
-import { rpcCallback, rpcChannel } from './core';
-export declare class Client {
+import { rpcCallback, QrpcChannel } from './core';
+export declare class Qrpclient {
     private readonly rpcClientVersion;
     private readonly rpcChannel;
-    constructor(rpcChannel: rpcChannel);
-    remoteCall(method: string, args: any[], version: string): Promise<rpcCallback>;
+    constructor(rpcChannel: QrpcChannel);
+    remoteCall(method: string, args: any[], additionID: string): Promise<rpcCallback>;
 }
-export declare class clientFactory {
+export declare class QrpcClientFactory {
     private readonly client;
-    private readonly clientVersion;
-    constructor(rpcChannel: rpcChannel, clientVersion: string);
+    private readonly additionID;
+    constructor(rpcChannel: QrpcChannel, additionID?: string);
     load<T>(): T;
 }
 //# sourceMappingURL=local.d.ts.map
