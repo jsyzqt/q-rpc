@@ -1,11 +1,11 @@
 import { rpcRequest, rpcResponse } from '../interfaces';
 import axios from 'axios';
 // import FormData from 'form-data';
-import {QrpcChannel} from '../core';
+import { QrpcChannel } from '../core';
 
 import { convertBinary } from '../utils/binaryMiddware';
 
-import {DummyProtocol} from './dummyProtocol';
+import { DummyProtocol } from './dummyProtocol';
 // import FormData from 'form-data';
 // import { Blob } from 'buffer';
 
@@ -14,22 +14,22 @@ import {DummyProtocol} from './dummyProtocol';
 //     return request
 // })
 
-export class AxoisChannel implements QrpcChannel{
-    constructor(private readonly remotePath:string, private readonly postMode:'json'|'multipart'='json'){}
+export class AxoisChannel implements QrpcChannel {
+    constructor(private readonly remotePath: string, private readonly postMode: 'json' | 'multipart' = 'json', private readonly axiosOptions?: axios.AxiosRequestConfig) { }
 
     public async send(req: rpcRequest): Promise<rpcResponse> {
-        
+
         let request = convertBinary(req);
-        if(this.postMode=='multipart'){
+        if (this.postMode == 'multipart') {
             // console.log(JSON.stringify(request))
 
-            
+
             const form = new FormData();
 
-            
-            if(request.binary){
-                
-                for(let b of request.binary){
+
+            if (request.binary) {
+
+                for (let b of request.binary) {
                     // console.log(b.binData)
                     // @ts-ignore
                     // form.append('aaa', new Blob(['some content']));
@@ -40,17 +40,17 @@ export class AxoisChannel implements QrpcChannel{
             form.append('rpc-json', JSON.stringify(request));
             // console.log(JSON.stringify(request))
 
-            try{
-                let res = await axios.post(this.remotePath, form);
+            try {
+                let res = await axios.post(this.remotePath, form, this.axiosOptions);
                 console.log('res--------------')
                 // console.log(res)
                 return res.data;
-            }catch(e){
+            } catch (e) {
                 // console.log(e)
             }
 
             return {} as any
-            
+
         } else {
             let res = await axios.post(this.remotePath, request, { headers: { 'mjRPCClient': request.mjRPCClient }, withCredentials: true });
             return res.data;
@@ -59,8 +59,8 @@ export class AxoisChannel implements QrpcChannel{
     }
 }
 
-export class dummyChannel implements QrpcChannel{
-    constructor(private readonly dummyProtocol:DummyProtocol){}
+export class dummyChannel implements QrpcChannel {
+    constructor(private readonly dummyProtocol: DummyProtocol) { }
 
     public async send(req: rpcRequest): Promise<rpcResponse> {
         let request = convertBinary(req);

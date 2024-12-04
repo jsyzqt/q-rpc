@@ -4,7 +4,8 @@
     "description": "",
     "main": "dist/core.js",
     "scripts": {
-        "test": "echo \"Error: no test specified\""
+        "test": "echo \"Error: no test specified\"",
+        "build": "npx tsc"
     },
     "repository": {
         "type": "git",

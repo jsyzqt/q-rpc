@@ -13,9 +13,10 @@ const binaryMiddware_1 = require("../utils/binaryMiddware");
 //     return request
 // })
 class AxoisChannel {
-    constructor(remotePath, postMode = 'json') {
+    constructor(remotePath, postMode = 'json', axiosOptions) {
         this.remotePath = remotePath;
         this.postMode = postMode;
+        this.axiosOptions = axiosOptions;
     }
     async send(req) {
         let request = (0, binaryMiddware_1.convertBinary)(req);
@@ -34,7 +35,7 @@ class AxoisChannel {
             form.append('rpc-json', JSON.stringify(request));
             // console.log(JSON.stringify(request))
             try {
-                let res = await axios_1.default.post(this.remotePath, form);
+                let res = await axios_1.default.post(this.remotePath, form, this.axiosOptions);
                 console.log('res--------------');
                 // console.log(res)
                 return res.data;

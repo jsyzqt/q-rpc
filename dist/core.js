@@ -36,11 +36,12 @@ var __importStar = (this && this.__importStar) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Server = exports.clientFactory = exports.ClientChannel = void 0;
+exports.Server = exports.clientFactory = exports.RemoteChannel = exports.ClientChannel = void 0;
 __exportStar(require("./local"), exports);
 __exportStar(require("./remote"), exports);
 __exportStar(require("./interfaces"), exports);
 exports.ClientChannel = __importStar(require("./local-channel/http"));
+exports.RemoteChannel = __importStar(require("./remote-channel/qrpcParser"));
 var local_1 = require("./local");
 Object.defineProperty(exports, "clientFactory", { enumerable: true, get: function () { return local_1.QrpcClientFactory; } });
 var remote_1 = require("./remote");
