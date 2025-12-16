@@ -24,7 +24,7 @@ class QrpcParser {
     }
     static rpcMultipart(qrpcServer) {
         return [
-            multipartParser.any(),
+            (0, multer_1.default)().any(),
             (0, express_async_handler_1.default)(async (req, res, next) => {
                 let rpcRequestData = JSON.parse(req.body['rpc-json']);
                 try {

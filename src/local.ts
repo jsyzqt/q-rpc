@@ -22,6 +22,12 @@ export class Qrpclient {
             // args2: true
         }
 
+        for(let i in args){
+            if(typeof args[i] === 'function'){
+                
+            }
+        }
+
         // try {
         let data: rpcResponse = await this.rpcChannel.send(reqData);
 

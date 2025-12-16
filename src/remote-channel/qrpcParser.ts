@@ -26,7 +26,7 @@ export class QrpcParser {
 
     static rpcMultipart<T>(qrpcServer: qRPCServer<T>): [ReturnType<typeof multipartParser.any>, ReturnType<typeof asyncHandler>] {
         return [
-            multipartParser.any(),
+            multer().any(),
             asyncHandler(async (req: any, res: any, next: NextFunction) => {
                 let rpcRequestData = JSON.parse(req.body['rpc-json']);
 

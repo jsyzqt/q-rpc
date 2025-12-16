@@ -114,7 +114,12 @@ class qRPCServer {
         for (let methodName of this.serviceMethods) {
             if (methodName === reqData.method) {
                 try {
-                    let re = await Reflect.apply(this.registerService[methodName], { ...this.registerService, innerArgs: [...args] }, [...reqData.args]);
+                    // let re = await Reflect.apply(this.registerService[methodName], { ...this.registerService, innerArgs: [...args] }, [...reqData.args]) as any
+                    // if(this.registerService.__injectRpcObjects){
+                    //     this.registerService.__injectRpcObjects([...args]);
+                    // }
+                    this.registerService.__innerRpcObjects = [...args];
+                    let re = await Reflect.apply(this.registerService[methodName], this.registerService, [...reqData.args]);
                     return {
                         isErr: false,
                         remoteReturned: re
