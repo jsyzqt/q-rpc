@@ -36,7 +36,7 @@
         "typescript": "^5.7.2"
     },
     "np": {
-        "2fa": false
+        "2fa": true
     },
     "publishConfig": {
         "access": "public",
